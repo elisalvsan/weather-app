@@ -1,7 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
+import fetchData from "../services/api";
 
 function Form() {
-  const handleSubmit = (event) => {};
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    fetchData("Fortaleza").then((response) => {
+      console.log(response);
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit}>
