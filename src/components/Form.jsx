@@ -1,13 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import fetchData from "../services/api";
 
 function Form() {
 
+  const [city, setCity] = useState("");
+  const [data, setData] = useState({});
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetchData("Fortaleza").then((response) => {
-      console.log(response);
+    fetchData(city).then((response) => {
+      setData(response);
     });
   };
 
@@ -17,6 +20,7 @@ function Form() {
         type="text"
         placeholder="Cidade"
         className="p-3 rounded-lg outline-none"
+        onChange={({target : {valeu}}) => setCity(valeu)}
       />
       <button
         type="submit"
