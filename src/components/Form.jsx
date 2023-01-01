@@ -1,8 +1,10 @@
 import React from "react";
 
 function Form() {
+  const handleSubmit = (event) => {};
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Cidade"
